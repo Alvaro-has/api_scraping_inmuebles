@@ -9,7 +9,9 @@ const getRemaxInmuebles = (req, res, next) => {
     //const url= 'https://www.remax.bo/';
    //const url ='https://c21.com.bo/';
    //const  url ='https://www.booking.com/';
-   const url ='https://www.mercadoprop.la/bo/departamentos-alquiler-la_paz.html';
+   const baseURL = 'https://www.mercadoprop.la/bo';
+   const url = `${baseURL}/departamentos-alquiler-la_paz.html`;
+   
     axios(url).then((response) => {
         const html = response.data;
         
@@ -20,15 +22,16 @@ const getRemaxInmuebles = (req, res, next) => {
           const title=$(this).find('h2').text();
           const price = $(this).find('p').text();
           const descripcion=$(this).find('span').text();
-          const img= $(this).find('img').attr('src');
-          const url=$(this).find('a').attr('href');
+          const url= `${baseURL}${$(this).find('a').attr('href')}`;
+          const imagen = $(this).next('a');
+          const img = `${imagen.find('img').attr('src')}`;
          
         inmuebles.push({title,price,descripcion,img,url});
        // console.log(articles, 'los articulos ');
     });
      res.status(200).json({
         ok: true,
-        data:"inmuebles",
+        data: inmuebles,
     });
 })
    .catch((err) => {console.log(err);});

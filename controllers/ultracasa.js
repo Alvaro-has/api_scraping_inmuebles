@@ -19,13 +19,13 @@ const getInmuebles = (req, res, next) => {
           
           //const url= 'https://www.infocasas.com.bo/alquiler/inmuebles/la-paz'+ $(this).find('a').attr('href');
         
-          const descripcion = $(this).find('p').text();
+          //const descripcion = $(this).find('p').text();
           const location = text.text();
-          //const price = $(this).find('.lc-price').text();
+          const precio = $(this).find('.label-destaca').text();
           const title=$(this).find('h2').text();
           const url= $(this).find('a').attr('href');
 
-          inmuebles.push({title,location,url});
+         inmuebles.push({title,location,precio,url});
     //sin esto no se imprime en consola que es lo que se esta obteniendo
         //inmuebles.push({title});
        // console.log(articles, 'los articulos ');

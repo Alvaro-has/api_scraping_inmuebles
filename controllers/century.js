@@ -4,31 +4,29 @@ const express = require('express');
 
 const getCenturyInmuebles = (req, res, next) => {
     let inmuebles= [];
-   //const url = 'https://www.infocasas.com.bo/alquiler/inmuebles/la-paz';
-  // const url = 'https://c21.com.bo/';
-    const url ='https://bolivia.bienesonline.com/';
+   // https://bolivia.bienesonline.com/
+    const url ='https://bolivia.bienesonline.com/departamentos/alquiler/la-paz';
    
     axios(url).then((response) => {
         const html = response.data;
         
         const $ = cheerio.load(html);
-        $('.items-list',html).each(function () { //lc-dataWrapper
-        //con-main-content-info padding-othest title = $(this).text(); //para solo obtener el texto
-         // const text = $(this).find('span'); //h4
+        $('.item',html).each(function () { 
+          const text = $(this).find('strong'); //h4
           //const url= 'https://www.infocasas.com.bo/alquiler/inmuebles/la-paz'+ $(this).find('a').attr('href');
-          //const url= `${baseURL}${$(this).find('a').attr('href')}`;
-          const price= $(this).find('p').text();
-          //const title = text.text();
-          //const price = $(this).find('.lc-price').text();
-          //const location= $(this).find('.lc-location').text();
-          //const Dorm_Baños=$(this).find('.lc-typologyTag').text();
-        
-        inmuebles.push({price});
-       // console.log(articles, 'los articulos ');
+          const Img= $(this).find('img').attr('src');
+          const Descripcion= $(this).find('p').text();
+          const Titulo = text.text();
+          const Precio = $(this).find('span').text();
+          const Dorm=$(this).find('p.feat').text();
+          const url= $(this).find('a').attr('href');
+          inmuebles.push({Img,Titulo,Descripcion,Precio,Dorm,url});
+        //console.log({Descripcion});
+      
     });
      res.status(200).json({
         ok: true,
-        data: "inmuebles",
+        data: inmuebles,
     });
 })
    .catch((err) => {console.log(err);});
