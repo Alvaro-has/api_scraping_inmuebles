@@ -1,10 +1,10 @@
 {
-  "name": "api_scraping_inmuebles",
+ "name": "api_scraping_inmuebles",
   "version": "1.0.0",
   "description": "web api scraping ",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "npm start"
   },
   "repository": {
     "type": "git",
@@ -23,4 +23,7 @@
     "dotenv": "^10.0.0",
     "express": "^4.17.1"
   }
+
 }
+
+
