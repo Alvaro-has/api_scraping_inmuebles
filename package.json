@@ -1,30 +1,31 @@
 {
+
  "name": "api_scraping_inmuebles",
-  "version": "1.0.0",
-  "description": "web api scraping ",
-  "main": "app.js",
-  "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon app.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Alvaro-has/api_scraping_inmuebles.git"
-  },
-  "author": "alvaro",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Alvaro-has/api_scraping_inmuebles/issues"
-  },
-  "homepage": "https://github.com/Alvaro-has/api_scraping_inmuebles#readme",
-  "dependencies": {
-    "axios": "^0.24.0",
-    "cheerio": "^1.0.0-rc.10",
-    "cors": "^2.8.5",
-    "dotenv": "^10.0.0",
-    "express": "^4.17.1"
-  }
- 
+ "version": "1.0.0",
+ "description": "web api scraping ",
+ "main": "app.js",
+ "scripts": {
+  "start": "node app.js",
+  "dev": "nodemon app.js"
+ },
+ "repository": {
+  "type": "git",
+  "url": "git+https://github.com/Alvaro-has/api_scraping_inmuebles.git"
+ },
+ "author": "alvaro",
+ "license": "ISC",
+ "bugs": {
+  "url": "https://github.com/Alvaro-has/api_scraping_inmuebles/issues"
+ },
+ "homepage": "https://github.com/Alvaro-has/api_scraping_inmuebles#readme",
+ "dependencies": {
+  "axios": "^0.24.0",
+  "cheerio": "^1.0.0-rc.10",
+  "cors": "^2.8.5",
+  "dotenv": "^10.0.0",
+  "express": "^4.17.1",
+  "image-type": "^5.2.0",
+  "sharp": "^0.32.1",
+  "type-is": "^1.6.18"
+ }
 }
-
-
